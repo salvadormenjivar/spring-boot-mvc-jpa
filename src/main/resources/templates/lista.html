@@ -39,6 +39,7 @@
 			<th>Apellido</th>
 			<th>Email</th>
 			<th>Fecha creación</th>
+			<td> Editar </td>
 		</tr>
 		<tr th:each="cliente : ${clientes}">
 			<td th:text="${cliente.id}"></td>
@@ -46,6 +47,7 @@
 			<td th:text="${cliente.apellido}"></td>
 			<td th:text="${cliente.email}"></td>
 			<td th:text="${cliente.createAt}"></td>
+			<td> <a th:href="@{/form/} + ${cliente.id}" class="btn btn-dark">Editar</a> </td>
 		</tr>
 	</table>
 </div>
