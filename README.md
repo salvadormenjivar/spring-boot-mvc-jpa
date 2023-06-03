@@ -9,26 +9,6 @@ configuración de mensajes.
 Bd: Mysql
 Utilicé bootstrap 5.3 en el front.
 
-
-## Instalación
-
-1. Clona el repositorio del proyecto.
-   ```shell
-   git clone <URL del repositorio>
-   ```
-
-2. Navega hasta el directorio del proyecto.
-   ```shell
-   cd <nombre del directorio>
-   ```
-
-3. Configura las variables de entorno y las configuraciones necesarias.
-
-4. Ejecuta el siguiente comando para construir el proyecto.
-   ```shell
-   ./mvnw clean install
-   ```
-
 ## Autor
 
 ```html
