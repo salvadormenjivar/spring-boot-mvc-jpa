@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.salvador.springboot.app.dao.IClienteDao;
 import com.salvador.springboot.app.entidades.Cliente;
+import com.salvador.springboot.app.service.IClienteService;
 
 import jakarta.validation.Valid;
 
@@ -20,13 +20,13 @@ import jakarta.validation.Valid;
 public class ClienteControl {
 
 	@Autowired
-	IClienteDao clienteDao;
+	IClienteService clienteService;
 
 	@GetMapping("/listaClientes")
 	public String listarClientes(Model model) {
 		model.addAttribute("titulo", "Lista de clientes Spring Boot MVC JPA.");
 		model.addAttribute("autor", "Creado por Salvador Peña");
-		model.addAttribute("clientes", clienteDao.findAll());
+		model.addAttribute("clientes", clienteService.findAll());
 		return "lista";
 	}
 
@@ -40,10 +40,10 @@ public class ClienteControl {
 	}
 
 	@GetMapping("/form/{id}")
-	public String formularioEdicion(@PathVariable(value="id") Long id, Model model) {
+	public String formularioEdicion(@PathVariable(value = "id") Long id, Model model) {
 		Cliente cliente = null;
 		if (id > 0) {
-			cliente = clienteDao.findOne(id);
+			cliente = clienteService.findOne(id);
 		} else {
 			return "redirect:/listaClientes";
 		}
@@ -58,8 +58,16 @@ public class ClienteControl {
 			model.addAttribute("titulo", "Ingreso de datos de cliente");
 			return "form";
 		}
-		clienteDao.save(cliente);
+		clienteService.save(cliente);
 		status.setComplete();
 		return "redirect:listaClientes";
+	}
+
+	@GetMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable(value = "id") Long id) {
+		if (id > 0) {
+			clienteService.eliminar(id);
+		}
+		return "redirect:/listaClientes";
 	}
 }
