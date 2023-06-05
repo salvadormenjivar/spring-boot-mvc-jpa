@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantilla/plantilla :: head">
+<head th:replace="~{plantilla/plantilla :: head}">
 </head>
 <body>
-	<header th:replace="plantilla/plantilla :: header"></header>
+	<header th:replace="~{plantilla/plantilla :: header}"></header>
 	<div class="container">
 	
 	
@@ -25,7 +25,8 @@
 						<th>Borrar</th>
 					</tr>
 					<tr th:each="cliente : ${clientes}">
-						<td th:text="${cliente.id}"></td>
+						<td> <a th:href="@{/verDetalle/} + ${cliente.id}" th:text="${cliente.id}"
+						class="btn btn-primary btn-xs"></a></td>
 						<td th:text="${cliente.nombre}"></td>
 						<td th:text="${cliente.apellido}"></td>
 						<td th:text="${cliente.email}"></td>
@@ -37,9 +38,10 @@
 							onclick="return confirm('Esta seguro de borrar el cliente' )">Borrar</a>
 					</tr>
 				</table>
+				<nav th:replace="paginador :: paginador"></nav>
 			</div>
 		</div>
 	</div>
-	<footer th:replace="plantilla/plantilla :: footer"> </footer>
+	<footer th:replace="~{plantilla/plantilla :: footer}"> </footer>
 </body>
 </html>

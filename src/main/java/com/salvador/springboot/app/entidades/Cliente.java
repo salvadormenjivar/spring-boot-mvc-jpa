@@ -40,6 +40,9 @@ public class Cliente implements Serializable {
 	//@NotNull
 	private Date createAt;
 	
+	@Column(name="foto")
+	private String foto;
+	
 	//Este método se llamará justo antes de llamar al método persist para insertar un registro a una bd
 	@PrePersist
 	public void prePersist() {
@@ -93,5 +96,16 @@ public class Cliente implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+	public String getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 
 }

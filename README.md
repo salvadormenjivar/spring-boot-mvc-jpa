@@ -17,6 +17,8 @@ En este proyecto se crea un crud a la tabla clientes. Se incluyen:
 - Fragmentos de thymeleaf
 - Alerts con boostrap
 - Growl con librerías toastr y sweetalert
+- Carga de imágenes a carpeta raíz del proyecto a través del path absoluto
+- Paginador
 
 ## Autor
 
