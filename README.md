@@ -25,3 +25,15 @@ En este proyecto se crea un crud a la tabla clientes. Se incluyen:
 ```html
 Salvador Peña
 ```
+# Imágenes
+### Lista de clientes
+![Lista clientes](/imagenes_readme/1.png)
+*** 
+### Edición de clientes
+![Editar clientes](/imagenes_readme/2.png)
+
+### Uso de diferentes formatos de mensajes
+![Mensajes clientes](/imagenes_readme/3.png)
+
+### Detalles cliente
+![Detalle clientes](/imagenes_readme/4.png)
