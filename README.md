@@ -32,7 +32,8 @@ Salvador Peña
 ### Edición de clientes
 ![Editar clientes](/imagenes_readme/2.png)
 
-### Uso de diferentes formatos de mensajes
+### Uso de diferentes formatos de mensajes con libreriás toastr y sweetalert
+
 ![Mensajes clientes](/imagenes_readme/3.png)
 
 ### Detalles cliente
