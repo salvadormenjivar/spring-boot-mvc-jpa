@@ -8,7 +8,7 @@
 	
 	
 		<div class="card mt-3">
-			<div class="card-header" th:text="${titulo} + ' ' + ${autor}"></div>
+			<div class="card-header d-flex justify-content-center" th:text="${titulo} + ' ' + ${autor}"></div>
 			<div class="card-body">				
 				<h5 class="card-title">
 					<a th:href="@{/form}" class="btn btn-dark mb-3 btn-lg"
@@ -22,7 +22,8 @@
 						<th>Email</th>
 						<th>Fecha creación</th>
 						<th>Editar</th>
-						<th>Borrar</th>
+						<th>Detalle</th>
+						<th>Borrar</th>					
 					</tr>
 					<tr th:each="cliente : ${clientes}">
 						<td> <a th:href="@{/verDetalle/} + ${cliente.id}" th:text="${cliente.id}"
@@ -33,9 +34,11 @@
 						<td th:text="${cliente.createAt}"></td>
 						<td><a th:href="@{/form/} + ${cliente.id}"
 							class="btn btn-dark">Editar</a></td>
+						<td><a th:href="@{/verDetalle/} + ${cliente.id}" th:text="Detalle" class="btn btn-dark"></a></td>
 						<td><a th:href="@{/eliminar/} + ${cliente.id}"
 							class="btn btn-danger"
 							onclick="return confirm('Esta seguro de borrar el cliente' )">Borrar</a>
+						
 					</tr>
 				</table>
 				<nav th:replace="paginador :: paginador"></nav>
