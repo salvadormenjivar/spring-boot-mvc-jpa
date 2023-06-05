@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title th:text="'Spring Boot JPA Thymeleaf ' + ${titulo}"></title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<header th:fragment="header">
+		<nav
+			class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark"
+			data-bs-theme="dark">
+			<a class="navbar-brand" href="#"> <img src="/images/logo.png"
+				width="30" height="30" alt="">
+			</a>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Spring Boot</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/listaClientes}">Clientes</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div th:if="${success != null}">
+
+			<input type="hidden" id="success" th:value="${success}">
+			
+			<script type="text/javascript">
+				//Llamada haciendo uso de librerias toastr para mensajes modales
+				$(document).ready(function() {					
+					toastr.options.timeOut = 3000;
+					toastr.options.positionClass = "toast-bottom-right";
+					toastr.success(document.getElementById("success").value);
+				});
+			</script>
+		</div>
+
+
+		<div th:if="${info != null}">
+			<input type="hidden" id="info" th:value="${info}">
+			<script type="text/javascript">
+			//Llamada haciendo uso de librerias swal para mensajes modales
+				$(document).ready(function() {
+					swal("Operación Exitosa!", document.getElementById("info").value, "info");					
+				});
+			</script>
+		</div>
+
+
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert" th:if="${error != null}">
+			<div th:text="${error}"></div>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+		<div class="alert alert-warning  alert-dismissible fade show"
+			role="alert" th:if="${warning != null}">
+			<div th:text="${warning}"></div>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+		<div class="alert alert-info alert-dismissible fade show" role="alert"
+			th:if="${info != null}">
+			<div th:text="${info}"></div>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</header>
+	<div class="container"></div>
+	<footer th:fragment="footer" class="text-center">
+		Creado por Salvador Peña
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		
+
+	</footer>
+</body>
+</html>
